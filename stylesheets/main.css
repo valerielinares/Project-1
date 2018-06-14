@@ -1,5 +1,5 @@
 #gameboard {
-  background-color: rgba(43, 92, 109,0.8);
+  background-color: white;
   width: 800px;
   height: 800px;
 }
@@ -20,6 +20,7 @@
   height: 800px;
   }
 
+
 #actionContainer {
   display: flex;
   width: 200px;
@@ -29,28 +30,58 @@
 
 .gamescreen {
   text-align: center;
-  background-image: url("http://digitaldomain.com/wp-content/uploads/2015/10/The_Fifth_Element_02.jpg");
+  background-image: url("https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/35240500_889360084585682_2731181823924109312_o.jpg?_nc_cat=0&oh=4ae0494d2af7602aeaf073b254d3ca4d&oe=5BAB4066");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin-top: 0;
   }
 
 a.button {
+  font-family: 'Krona One', sans-serif;
   display:block;
-  color: rgb(247, 212, 15);
   font-weight: bold;
-  font-size: 3em;
+  font-size: 2.5em;
   text-decoration:none;
   padding-right: 20px;
  }
 
 .start {
-  padding-bottom: 100px;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  color:rgb(25, 51, 77);
+  text-shadow: 10px;
   }
 
 .stop {
   padding-top: 100px;
+  color: rgb(247, 212, 15);
 }
+
+.restart {
+  padding-bottom: 100px;
+  color: rgb(247, 212, 15);
+  }
+
+.gameboardcover {
+  z-index: 1000;
+  width: 700px;
+  height: 700px;
+  background-color: white;
+  position: absolute;
+  top: 20px;
+  left: 690px;
+}
+
+.instructions {
+  display: flex;
+  justify-content:space-around;
+  padding-top: 100px;
+  line-height: 2.5em;
+  padding-left: 30px;
+}
+
 
 /* #startImg {
   background-color: rgba(27, 2, 6);
@@ -70,10 +101,10 @@ h1 {
   }
 
 h2 {
-  color: white;
+  color:rgb(25, 51, 77);
   font-family: 'Krona One', sans-serif;
   font-size: 1.5em;
-  padding: 10px 20px;
+  padding-left: 50px;
     }
   
 p {

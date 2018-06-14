@@ -11,20 +11,23 @@
 <body>
     <div id="mainContainer" class="gamescreen"> 
         <div id="leftContainer" > 
-            <h1> The 5th element challenge</h1>
-            <h2> Trying to escape from her pursuers, Leelou, the so-called "5th&nbsp;Element",
-                    fell into the void. Catch her and drive her to a safe place through the secret gate. </h2>
+            <h1> The 5th Element challenge</h1>
+           
         </div> 
 
-        <div id="centerContainer">    
-            <canvas id="gameboard" width="800" height="800">
-            </canvas>
+        <div id="centerContainer">   
+           
+            <div id="canvas">
+                <canvas id="gameboard" width="800" height="800">
+                </canvas>
+            </div>            
+            
         </div>     
 
         <div id="actionContainer">
             <div class="on-off">
-               <a href="#" class="start button" >
-                   <span id="start"> Start </span>
+               <a href="#" class="restart button" >
+                   <span id="restart"> Restart </span>
                </a>
            </div>
            <div class="on-off">
@@ -34,27 +37,57 @@
            </div>
         </div>
     </div>  
-  
-</body>
+  <div id="startscreen" class="gameboardcover"> 
 
+    <div class="instructions"> 
+        <div> <img src="img/leeloufirst.jpg" ></div>
+        <div>  <h2> Trying to escape from her pursuers, Leelou, the so&#8209;called "5th&nbsp;Element",
+                fell into the void. </br>
+                Catch her and drive her to a safe place through the secret gate. </h2> </div>    
+     </div>  
+    
+    <div class="start">
+            <a href="#" class="start button" >
+                <span id="start"> Start </span>
+            </a>
+        </div>
+
+    </div>
+  </body>
+
+  
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
 <!--- insert the javascript to link to the canvas tag-->
 <script> 
-    console.log ("Hello!")
-    // $(function() {
-    //     $('gameboard').hide();
-    //     }); 
 
-    var start = document.getElementById("start");
-    start.onclick = restart;
+    // $(document).ready(function() {
+        //   if ($("#startImg").hasClass("active")) {
+            //       $("#canvas").hide();
+            //   }
+            // });
+            
+    $(document).ready(function() {
+            $(".start").click(function () {
+                $("#startscreen").hide();
+                restart;
+            });
+    });
+      
+    // var start = document.getElementById("start");
+    // start.onclik = restart;
 
+    var restart = document.getElementById("restart");
+    restart.onclick = restart;
+
+    var stop = document.getElementById("stop");
+    stop.onclick = end;
 
     var canvas=document.getElementById("gameboard");
     var ctx = canvas.getContext( '2d');
     
-// dessin de la porte
-    ctx.fillStyle ="black";
-    ctx.fillRect(795, 350, 5, 100);
-
 
  // Player constructor and methods
     var xPlayerInit = 10;
@@ -68,6 +101,9 @@
         this.y = y;
         this.width = width;
         this.height = height;
+        this.img = new Image();
+        this.img.src = "img/taxi3.png";
+
         document.onkeydown = (e) => {
         switch (e.keyCode) {
           case 38:
@@ -87,8 +123,9 @@
      }
      
     Player.prototype.draw = function (x, y, width, height) {
-        ctx.fillStyle ="gold";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillStyle ="gold";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.img,this.x,this.y);
     }
     
     var myPlayer = new Player (xPlayerInit, yPlayerInit, widthPlayerInit, heightPlayerInit);
@@ -131,11 +168,14 @@
         this.y = y;
         this.width = width;
         this.height = height;
+        this.img = new Image();
+        this.img.src = "img/leelou.png";
      }
      
     Leelou.prototype.draw = function (x, y, width, height) {
-        ctx.fillStyle ="orange";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.fillStyle ="orange";
+        // ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.img,this.x,this.y);
     }
     
     var myLeelou = new Leelou (xLeelouInit, yLeelouInit, widthLeelouInit, heightLeelouInit);
@@ -150,7 +190,7 @@
             this.height + this.y > myPlayer.y)
             {
                 this.x = myPlayer.x + (widthPlayerInit/2) - (widthLeelouInit/2);
-                this.y = myPlayer.y - (heightPlayerInit/2);
+                this.y = myPlayer.y - (heightPlayerInit/1.5);
         } else {
                 this.x = this.x;
                 this.y = this.y + 10;
@@ -161,22 +201,28 @@
     setInterval (function () {
         ctx.clearRect(0, 0, 800,800);
         myPlayer.move(0,0);
-        myPlayer.draw();
         myLeelou.move(0,0);
         myLeelou.draw();
-        ctx.fillStyle ="white";
+        myPlayer.draw();
+        ctx.fillStyle ="grey";
         ctx.fillRect(790, 350, 10, 100);
        
     },100); 
 
     // fail function
     function fail() {
-        alert ("Leelou died, mission failed")
+        alert ("Leelou died, mission failed");
     }
 
     // win function
     function win() {
-        alert ("Leelou is safe, mission complete!")
+        alert ("Leelou is safe, mission complete!");
+    }
+
+    // end function
+    function end() {
+        alert ("Au revoir");
+        ctx.clearRect(0, 0, 800,800);
     }
 
     // restart function
