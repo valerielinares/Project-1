@@ -18,6 +18,7 @@
 
         <div id="centerContainer">    
             <canvas id="gameboard" width="800" height="800">
+              
             </canvas>
         </div>     
 
@@ -51,11 +52,6 @@
     var canvas=document.getElementById("gameboard");
     var ctx = canvas.getContext( '2d');
     
-// dessin de la porte
-    ctx.fillStyle ="black";
-    ctx.fillRect(795, 350, 5, 100);
-
-
  // Player constructor and methods
     var xPlayerInit = 10;
     var yPlayerInit = 390;
@@ -164,9 +160,6 @@
         myPlayer.draw();
         myLeelou.move(0,0);
         myLeelou.draw();
-        ctx.fillStyle ="white";
-        ctx.fillRect(790, 350, 10, 100);
-       
     },100); 
 
     // fail function

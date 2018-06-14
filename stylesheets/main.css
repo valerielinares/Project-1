@@ -41,15 +41,23 @@ a.button {
   font-weight: bold;
   font-size: 3em;
   text-decoration:none;
+  padding-right: 20px;
  }
 
 .start {
   padding-bottom: 100px;
-}
+  }
 
-.sotp {
+.stop {
   padding-top: 100px;
 }
+
+/* #startImg {
+  background-color: rgba(27, 2, 6);
+  width: 800px;
+  height: 800px;
+} */
+
 
 body {
     /*background-color: rgb(196, 176, 222);*/
