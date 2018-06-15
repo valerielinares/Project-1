@@ -62,28 +62,27 @@
   crossorigin="anonymous"></script>
 <!--- insert the javascript to link to the canvas tag-->
 <script> 
-
-    // $(document).ready(function() {
-        //   if ($("#startImg").hasClass("active")) {
-            //       $("#canvas").hide();
-            //   }
-            // });
-            
+                
     $(document).ready(function() {
             $(".start").click(function () {
                 $("#startscreen").hide();
-                restart;
+                console.log("Hello");
+                restart();
             });
     });
       
     // var start = document.getElementById("start");
     // start.onclik = restart;
 
-    var restart = document.getElementById("restart");
-    restart.onclick = restart;
+    var restartButton = document.getElementById("restart");
+    //console.log(restartButton);
 
-    var stop = document.getElementById("stop");
-    stop.onclick = end;
+    restartButton.onclick = restart;
+    //console.log("Hello");
+
+    var stopButton = document.getElementById("stop");
+    stopButton.onclick = end;
+    console.log("stopButton")
 
     var canvas=document.getElementById("gameboard");
     var ctx = canvas.getContext( '2d');
