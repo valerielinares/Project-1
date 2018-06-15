@@ -157,7 +157,7 @@
     //myPlayer.draw();
 
     Player.prototype.move = function (dx, dy) {
-        if (this.x > 780) {
+        if (this.x > 790 && Leelou.x > 790) {
             win();
             //restart();
         } else if ((this.y < this.height && dy < 0) || (this.y > (790-this.height) && dy > 0)) {
