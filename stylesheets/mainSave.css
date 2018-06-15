@@ -2,7 +2,6 @@
   background-color: white;
   width: 800px;
   height: 800px;
-  margin-top: 5px;
 }
 
 #mainContainer {
@@ -67,25 +66,33 @@ a.button {
 
 .gameboardcover {
   z-index: 1000;
-  width: 900px;
-  height: 900px;
+  width: 700px;
+  height: 700px;
   background-color: white;
   position: absolute;
-  top: 5px;
-  left: 700px;
+  top: 20px;
+  left: 690px;
 }
 
 .instructions {
   display: flex;
   justify-content:space-around;
   padding-top: 100px;
-  line-height: 3em;
+  line-height: 2.5em;
   padding-left: 30px;
 }
 
+
+/* #startImg {
+  background-color: rgba(27, 2, 6);
+  width: 800px;
+  height: 800px;
+} */
+
+
 body {
-  margin-top: 5px;
-}
+    /*background-color: rgb(196, 176, 222);*/
+}    
 
 h1 {
   color: white;
