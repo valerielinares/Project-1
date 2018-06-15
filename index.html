@@ -79,9 +79,13 @@
     var canvas=document.getElementById("gameboard");
     var ctx = canvas.getContext( '2d');
     
+    function randomNumber(min, max) {   
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
  // Player constructor and methods
-    var xPlayerInit = 10;
-    var yPlayerInit = 390;
+    var xPlayerInit = randomNumber(2,30);
+    var yPlayerInit = randomNumber(200,750);
     var widthPlayerInit = 60;
     var heightPlayerInit = 20;
      
@@ -144,7 +148,7 @@
      
     // leelou constructor and methods
     var widthLeelouInit = 20;
-    var xLeelouInit =  xPlayerInit + (widthPlayerInit/2) - (widthLeelouInit/2);
+    var xLeelouInit =  randomNumber(2,130);
     var yLeelouInit = 10;
     var widthLeelouInit = 20;
     var heightLeelouInit = 20;
@@ -214,7 +218,9 @@
 
     // restart function
     function restart() {
-        //alert("Play again?");
+        var xPlayerInit = randomNumber(2,30);
+        var yPlayerInit = randomNumber(200,750);
+        var xLeelouInit =  randomNumber(2,130);
            myLeelou = new Leelou (xLeelouInit, yLeelouInit, widthLeelouInit, heightLeelouInit);
            myPlayer = new Player (xPlayerInit, yPlayerInit, widthPlayerInit, heightPlayerInit);
     };
