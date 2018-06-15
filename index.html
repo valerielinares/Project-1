@@ -71,6 +71,19 @@
     
         </div>
 
+    <div id="failcreen" class="gameboardsemicover"> 
+
+        <div class="instructions"> 
+            <div> <img src="img/gameover.jpg" ></div>
+             <div>  <h2> Oh, you failed and Leelou died! </br>
+                        
+                     </h2> 
+            </div>    
+         </div>  
+            
+        
+        </div>        
+
   </body>
 
   
@@ -83,6 +96,7 @@
                 
     $(document).ready(function() {
         $("#winscreen").hide();
+        $('#failcreen').hide();
             $(".start").click(function () {
                 $("#startscreen").hide();
                 start();
@@ -222,7 +236,9 @@
 
     // fail function
     function fail() {
-        alert ("Leelou died, mission failed");
+       // alert ("Leelou died, mission failed");
+       $("#winscreen").show();
+       $('#failcreen').show();
     }
 
     // win function
@@ -240,6 +256,7 @@
 
     function playAgain() {
         $("#winscreen").hide();
+        $('#failcreen').hide();
         start();
     }
 
